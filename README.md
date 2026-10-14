@@ -9,7 +9,7 @@
 安装并启动 Docker Desktop，选择 Linux 容器模式。从 [Release v1.0.0](https://github.com/ZongshunXu/kb-mcp-project-1/releases/tag/v1.0.0) 下载 **全部 10 个附件** 到同一个新文件夹，包括五个模型分卷。打开该文件夹，在资源管理器地址栏输入 `powershell` 并回车，执行：
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\初始化.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File .\initialize.ps1
 ```
 
 初始化会导入镜像、解压完整模型和项目，直接检查随包 CPU 索引，不需要安装 Python 依赖或重新 Embedding。完成后复现五组实验：
@@ -19,7 +19,7 @@ Set-Location .\new_project
 docker compose run --rm --pull never kb eval --output reports/docker_eval --repeats 3 --warmup 1
 ```
 
-结果在 `reports/docker_eval/summary.md`。详细说明见下载的 `接收方使用.md`；检索评测不需要 DeepSeek Key，Agent 问答需要自己的 Key。私有仓库的接收方需要先取得仓库访问权限。下面继续说明从源码自行构建的操作。
+结果在 `reports/docker_eval/summary.md`。详细说明见下载的 `RECEIVER.md`；检索评测不需要 DeepSeek Key，Agent 问答需要自己的 Key。私有仓库的接收方需要先取得仓库访问权限。下面继续说明从源码自行构建的操作。
 
 ## Docker 启动与交接
 
@@ -231,13 +231,13 @@ Git 保留源码、Docker 配置、依赖清单、300 篇语料、正式题集�
 | `kb-mcp-cpu.tar.gz` | 预构建 Linux amd64 CPU 镜像，省去接收者安装 Python 和首次镜像构建 |
 | `bge-m3-model.zip.part001` 至 `part005` | 完整 BGE-M3 ZIP 的分卷，初始化时合并并校验 |
 | `manifest.json` | 附件与模型的大小、SHA-256 等校验信息 |
-| `初始化.ps1` | 接收方初始化入口，具体步骤以附件指南为准 |
-| `接收方使用.md` | 下载、启动、复现和 DeepSeek Key 配置说明 |
+| `initialize.ps1` | 接收方初始化入口，具体步骤以附件指南为准 |
+| `RECEIVER.md` | 下载、启动、复现和 DeepSeek Key 配置说明 |
 
-同事下载全部附件到同一个文件夹，按 `接收方使用.md` 操作，安装并启动 Docker 后执行：
+同事下载全部附件到同一个文件夹，按 `RECEIVER.md` 操作，安装并启动 Docker 后执行：
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\初始化.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File .\initialize.ps1
 ```
 
 只下载 GitHub 自动生成的 **Source code (zip)** 得到的是源码，不包含独立上传的镜像、模型分卷或初始化入口；这种方式需要按前文自行准备模型、构建镜像和生成索引。离线交付文件在本机生成于 `artifacts/handoff/`，该路径不是克隆后自带的下载内容。
