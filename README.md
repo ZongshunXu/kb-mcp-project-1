@@ -4,6 +4,23 @@
 
 任务范围见 [PLAN.md](PLAN.md)，执行证据见 [reports/validation.md](reports/validation.md)。M2 是后续可选扩展。本机已有模型和索引；Git 克隆不含这些生成资源。
 
+## 接收方最快运行方式（Windows）
+
+安装并启动 Docker Desktop，选择 Linux 容器模式。从 [Release v1.0.0](https://github.com/ZongshunXu/kb-mcp-project-1/releases/tag/v1.0.0) 下载 **全部 10 个附件** 到同一个新文件夹，包括五个模型分卷。打开该文件夹，在资源管理器地址栏输入 `powershell` 并回车，执行：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\初始化.ps1
+```
+
+初始化会导入镜像、解压完整模型和项目，直接检查随包 CPU 索引，不需要安装 Python 依赖或重新 Embedding。完成后复现五组实验：
+
+```powershell
+Set-Location .\new_project
+docker compose run --rm --pull never kb eval --output reports/docker_eval --repeats 3 --warmup 1
+```
+
+结果在 `reports/docker_eval/summary.md`。详细说明见下载的 `接收方使用.md`；检索评测不需要 DeepSeek Key，Agent 问答需要自己的 Key。私有仓库的接收方需要先取得仓库访问权限。下面继续说明从源码自行构建的操作。
+
 ## Docker 启动与交接
 
 接收者可以只安装 Docker，Python 和项目依赖统一安装在 Linux amd64 镜像中。Windows 使用 Docker Desktop 并选择 Linux 容器；Linux 使用 Docker Engine 和 Docker Compose。下面的命令都在包含 `compose.yaml` 的项目目录执行。
