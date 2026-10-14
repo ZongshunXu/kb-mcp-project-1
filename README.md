@@ -19,7 +19,7 @@ Set-Location .\new_project
 docker compose run --rm --pull never kb eval --output reports/docker_eval --repeats 3 --warmup 1
 ```
 
-结果在 `reports/docker_eval/summary.md`。详细说明见下载的 `RECEIVER.md`；检索评测不需要 DeepSeek Key，Agent 问答需要自己的 Key。私有仓库的接收方需要先取得仓库访问权限。下面继续说明从源码自行构建的操作。
+结果在 `reports/docker_eval/summary.md`。详细说明见下载的 `RECEIVER.md`；检索评测不需要 DeepSeek Key，Agent 问答需要自己的 Key。公开仓库可以直接查看和下载，无需邀请。下面继续说明从源码自行构建的操作。
 
 ## Docker 启动与交接
 
@@ -195,54 +195,24 @@ Recall 要求完整覆盖证据，同文档重叠/相邻区间先合并，每题
 
 已有报告来自原开发机器及其 Docker 容器中的合成语料实验，保留真实结果，不代表其他机器或 DeepSeek 已通过验收。没有有效模型、索引或审核题集时评测显示 `BLOCKED`，未测字段留空。导师 Review 与程序检查、用户题集批准分开记录。
 
-## GitHub 私有仓库交付
+## GitHub 公开仓库交付
 
-源码放在 **Private 私有仓库**，预构建镜像和模型分卷作为该仓库的 **Release 下载附件**。`https://github.com/`、`https://github.com/repos`、`https://github.com/dashboard` 是通用页面；具体项目地址应是 `https://github.com/OWNER/REPO`，其中 `OWNER` 为 GitHub 用户名或组织名，`REPO` 为仓库名。
-
-首次发布时，打开 [GitHub 新建仓库](https://github.com/new)，选择仓库所属 Owner、设置仓库名，可见性选择 **Private**。创建空仓库时不要勾选自动添加 README、`.gitignore` 或 License，本项目已提供现有文件。创建完成后复制完整项目地址。步骤依据 [GitHub 新建仓库说明](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository)。
-
-本项目的发布目标为 [**ZongshunXu/kb-mcp-project-1 私有仓库**](https://github.com/ZongshunXu/kb-mcp-project-1)，远程仓库已创建。当前本地项目已经初始化为 `main` 分支，`origin` 已指向该地址。离线交付文件已准备并通过本机新接收目录的冷启动验证；源码推送和 Release 附件上传状态以仓库实际页面为准。
-
-当前本地项目使用下面的后续命令，无需重复 `git init` 或 `git remote add`。如果已有相同提交，跳过 `git commit`；Git 登录使用自己的账户，不把访问令牌或 DeepSeek Key 写入命令、源码或交接包。
-
-```powershell
-git add .
-git commit -m "Initial knowledge-base MCP project"
-git push -u origin main
-```
-
-下面另保留**其他全新项目目录和全新空仓库**的通用模板，供后续迁移时参考，当前目录不要重复执行。先把 `OWNER`、`REPO` 替换成真实值。
-
-```powershell
-git init -b main
-git add .
-git commit -m "Initial knowledge-base MCP project"
-git remote add origin https://github.com/OWNER/REPO.git
-git push -u origin main
-```
-
-Git 保留源码、Docker 配置、依赖清单、300 篇语料、正式题集和实验报告。模型、向量索引、实际 `.env`、日志及离线交付包留在 Git 之外。GitHub 阻止普通 Git 仓库中超过 **100 MiB** 的单个文件；Release 的单个附件必须小于 **2 GiB**，因此镜像和约 2.30 GB 的完整模型不直接提交。限制依据 [GitHub 大文件说明](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github) 与 [Release 附件说明](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases)。
-
-以下离线交付附件已完成打包和本机新接收目录初始化验收，下载入口为仓库的 [Releases 页面](https://github.com/ZongshunXu/kb-mcp-project-1/releases)。模型按 **512 MiB** 分卷，分卷不是独立模型文件，接收者需要全部下载；附件发布状态以 Releases 页面为准。
+项目已发布到 [ZongshunXu/kb-mcp-project-1 公开仓库](https://github.com/ZongshunXu/kb-mcp-project-1)。同事可以直接查看源码；完整运行包在 [Release v1.0.0](https://github.com/ZongshunXu/kb-mcp-project-1/releases/tag/v1.0.0)，共 10 个附件。
 
 | Release 附件 | 内容 |
 | --- | --- |
-| `kb-mcp-project.zip` | 源码、配置、固定输入与报告，包含已验收的 Docker CPU 索引 |
-| `kb-mcp-cpu.tar.gz` | 预构建 Linux amd64 CPU 镜像，省去接收者安装 Python 和首次镜像构建 |
-| `bge-m3-model.zip.part001` 至 `part005` | 完整 BGE-M3 ZIP 的分卷，初始化时合并并校验 |
-| `manifest.json` | 附件与模型的大小、SHA-256 等校验信息 |
-| `initialize.ps1` | 接收方初始化入口，具体步骤以附件指南为准 |
-| `RECEIVER.md` | 下载、启动、复现和 DeepSeek Key 配置说明 |
+| `kb-mcp-project.zip` | 项目、300 篇语料、题集、报告及已验收的 Docker CPU 索引 |
+| `kb-mcp-cpu.tar.gz` | 预构建 Linux amd64 CPU 镜像，包含 Python 与依赖 |
+| `bge-m3-model.zip.part001` 至 `part005` | 完整 BGE-M3 模型的五个分卷，必须全部下载 |
+| `manifest.json` | 大小与 SHA-256 校验清单 |
+| `initialize.ps1` | Windows 初始化入口 |
+| `RECEIVER.md` | 中文接收方指南与 Key 配置说明 |
 
-同事下载全部附件到同一个文件夹，按 `RECEIVER.md` 操作，安装并启动 Docker 后执行：
+下载全部附件到同一个新文件夹，按照本文件开头或 `RECEIVER.md` 的步骤运行。文件已在本机全新接收目录通过初始化验收；十个远程附件的大小与 SHA-256 均与本地一致。项目 ZIP 中的文档保留打包时状态，仓库和 Release 页面记录当前发布状态。
 
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\initialize.ps1
-```
+Git 保留源码、配置、依赖、300 篇语料、题集和报告。模型、索引、实际 `.env`、日志和交付包排除在 Git 之外。普通 Git 单文件限制为 **100 MiB**，Release 单文件必须小于 **2 GiB**，因此完整模型按 512 MiB 分卷。依据 [GitHub 大文件说明](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github) 与 [Release 附件说明](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases)。
 
-只下载 GitHub 自动生成的 **Source code (zip)** 得到的是源码，不包含独立上传的镜像、模型分卷或初始化入口；这种方式需要按前文自行准备模型、构建镜像和生成索引。离线交付文件在本机生成于 `artifacts/handoff/`，该路径不是克隆后自带的下载内容。
-
-私有仓库的同事必须先获得访问权限：在仓库 **Settings → Collaborators → Add people** 邀请同事，等其接受邀请后，才能查看代码、Release 和下载附件。此说明没有发送任何邀请。权限依据 [邀请个人仓库协作者](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/inviting-collaborators-to-a-personal-repository) 与 [Release 访问说明](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases)。
+GitHub 自动生成的 **Source code (zip)** 只含源码，不包含独立上传的镜像、模型、索引或初始化入口；仅使用源码时需自行准备模型、构建镜像和生成索引。完整离线交付文件在开发机器的 `artifacts/handoff/`，通过 Release 下载取得。
 
 ## Git 与最简目录
 
