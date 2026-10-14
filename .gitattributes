@@ -1,0 +1,4 @@
+# Portable text defaults. The hash-bound inputs below must retain raw bytes.
+* text=auto eol=lf
+/data/corpus/** -text
+/data/qrels/*.jsonl -text

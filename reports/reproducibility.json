@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "corpus_sha256_matches": true,
+  "unique_node_files_rebuilt_from_source": 4,
+  "relation_edges_verified": 6210,
+  "corpus_digest": "205c9691c721e26e3689f33be7f4ae84db49dece58f254edeccebb9a75ba2faf",
+  "note": "Recomputed every node and relation from original corpus; not a second full embedding run."
+}

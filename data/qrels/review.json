@@ -1,0 +1,10 @@
+{
+  "status": "approved",
+  "reviewer": "本会话用户（确认全部通过）；Codex 辅助核对原文",
+  "reviewed_at": "2026-10-13T21:04:36+08:00",
+  "qrels_sha256": "06aaafb83e7ae4a3ca03a1c6807417dca70ba0f7011af477f0f8779249d53cc3",
+  "corpus_digest": "205c9691c721e26e3689f33be7f4ae84db49dece58f254edeccebb9a75ba2faf",
+  "approval_method": "assistant source audit plus explicit user conversation approval",
+  "approval_quote": "那直接全部通过",
+  "notes": "用户授权助手审核并给修改意见，随后确认本批50题全部通过。助手核对50篇全文，修正30题因固定章节号导致的证据定位错配，问题保持不变。未声称用户逐题亲自阅读。"
+}

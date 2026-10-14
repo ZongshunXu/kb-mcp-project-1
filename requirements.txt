@@ -1,0 +1,11 @@
+# Validated versions for Python 3.12; use the current machine's Python environment.
+mcp==1.18.0
+pydantic==2.11.7
+pydantic-settings==2.10.1
+httpx==0.28.1
+jsonschema==4.25.0
+torch==2.7.1
+transformers==4.54.1
+numpy==2.3.2
+faiss-cpu==1.15.1
+pytest==9.1.1

@@ -1,0 +1,7 @@
+{
+  "F1": {"kind": "M0", "search_size": 240, "search_overlap": 50, "parent_size": null, "parent_overlap": null},
+  "F2": {"kind": "M0", "search_size": 960, "search_overlap": 200, "parent_size": null, "parent_overlap": null},
+  "P1": {"kind": "M1", "search_size": 240, "search_overlap": 50, "parent_size": 960, "parent_overlap": 200},
+  "P2": {"kind": "M1", "search_size": 240, "search_overlap": 50, "parent_size": 960, "parent_overlap": 300},
+  "P3": {"kind": "M1", "search_size": 240, "search_overlap": 50, "parent_size": 1200, "parent_overlap": 300}
+}

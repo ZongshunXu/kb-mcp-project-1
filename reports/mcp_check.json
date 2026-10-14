@@ -1,0 +1,194 @@
+{
+  "status": "PASS",
+  "transport": "stdio",
+  "real_mcp_client": true,
+  "query": "离职员工权限回收时如何处理角色和会话？",
+  "shared_small_search_equal": true,
+  "experiments": [
+    {
+      "group": "F1",
+      "status": "PASS",
+      "checks": {
+        "initialize": true,
+        "tools_exactly_two": true,
+        "scope_in_schema": true,
+        "empty_query_is_error": true,
+        "invalid_k_is_error": true,
+        "invalid_id_is_error": true,
+        "search_topk_and_order": true,
+        "search_and_fetch_texts_match_metadata": true,
+        "fetch_via_search_node_id": true,
+        "neighbors_are_node_id_references": true
+      },
+      "search_node_ids": [
+        "enterprise_doc_001.md::w240o50:950-1190",
+        "enterprise_doc_001.md::w240o50:760-1000",
+        "enterprise_doc_001.md::w240o50:0-240",
+        "enterprise_doc_001.md::w240o50:380-620",
+        "enterprise_doc_001.md::w240o50:190-430"
+      ],
+      "scores": [
+        0.7420938611030579,
+        0.7245780229568481,
+        0.7127192616462708,
+        0.7029682993888855,
+        0.6409558653831482
+      ],
+      "fetch_node_ids": [
+        "enterprise_doc_001.md::w240o50:950-1190",
+        "enterprise_doc_001.md::w240o50:760-1000",
+        "enterprise_doc_001.md::w240o50:0-240",
+        "enterprise_doc_001.md::w240o50:380-620",
+        "enterprise_doc_001.md::w240o50:190-430"
+      ]
+    },
+    {
+      "group": "F2",
+      "status": "PASS",
+      "checks": {
+        "initialize": true,
+        "tools_exactly_two": true,
+        "scope_in_schema": true,
+        "empty_query_is_error": true,
+        "invalid_k_is_error": true,
+        "invalid_id_is_error": true,
+        "search_topk_and_order": true,
+        "search_and_fetch_texts_match_metadata": true,
+        "fetch_via_search_node_id": true,
+        "neighbors_are_node_id_references": true
+      },
+      "search_node_ids": [
+        "enterprise_doc_001.md::w960o200:0-960",
+        "enterprise_doc_001.md::w960o200:760-1254",
+        "enterprise_doc_101.md::w960o200:760-1261",
+        "enterprise_doc_204.md::w960o200:0-960",
+        "enterprise_doc_091.md::w960o200:0-960"
+      ],
+      "scores": [
+        0.7462249994277954,
+        0.7441939115524292,
+        0.6116247177124023,
+        0.597663402557373,
+        0.594403862953186
+      ],
+      "fetch_node_ids": [
+        "enterprise_doc_001.md::w960o200:0-960",
+        "enterprise_doc_001.md::w960o200:760-1254",
+        "enterprise_doc_101.md::w960o200:760-1261",
+        "enterprise_doc_204.md::w960o200:0-960",
+        "enterprise_doc_091.md::w960o200:0-960"
+      ]
+    },
+    {
+      "group": "P1",
+      "status": "PASS",
+      "checks": {
+        "initialize": true,
+        "tools_exactly_two": true,
+        "scope_in_schema": true,
+        "empty_query_is_error": true,
+        "invalid_k_is_error": true,
+        "invalid_id_is_error": true,
+        "search_topk_and_order": true,
+        "search_and_fetch_texts_match_metadata": true,
+        "fetch_via_search_node_id": true,
+        "neighbors_are_node_id_references": true
+      },
+      "search_node_ids": [
+        "enterprise_doc_001.md::w240o50:950-1190",
+        "enterprise_doc_001.md::w240o50:760-1000",
+        "enterprise_doc_001.md::w240o50:0-240",
+        "enterprise_doc_001.md::w240o50:380-620",
+        "enterprise_doc_001.md::w240o50:190-430"
+      ],
+      "scores": [
+        0.7420938611030579,
+        0.7245780229568481,
+        0.7127192616462708,
+        0.7029682993888855,
+        0.6409558653831482
+      ],
+      "fetch_node_ids": [
+        "enterprise_doc_001.md::w960o200:760-1254",
+        "enterprise_doc_001.md::w960o200:760-1254",
+        "enterprise_doc_001.md::w960o200:0-960",
+        "enterprise_doc_001.md::w960o200:0-960",
+        "enterprise_doc_001.md::w960o200:0-960"
+      ]
+    },
+    {
+      "group": "P2",
+      "status": "PASS",
+      "checks": {
+        "initialize": true,
+        "tools_exactly_two": true,
+        "scope_in_schema": true,
+        "empty_query_is_error": true,
+        "invalid_k_is_error": true,
+        "invalid_id_is_error": true,
+        "search_topk_and_order": true,
+        "search_and_fetch_texts_match_metadata": true,
+        "fetch_via_search_node_id": true,
+        "neighbors_are_node_id_references": true
+      },
+      "search_node_ids": [
+        "enterprise_doc_001.md::w240o50:950-1190",
+        "enterprise_doc_001.md::w240o50:760-1000",
+        "enterprise_doc_001.md::w240o50:0-240",
+        "enterprise_doc_001.md::w240o50:380-620",
+        "enterprise_doc_001.md::w240o50:190-430"
+      ],
+      "scores": [
+        0.7420938611030579,
+        0.7245780229568481,
+        0.7127192616462708,
+        0.7029682993888855,
+        0.6409558653831482
+      ],
+      "fetch_node_ids": [
+        "enterprise_doc_001.md::w960o300:660-1254",
+        "enterprise_doc_001.md::w960o300:660-1254",
+        "enterprise_doc_001.md::w960o300:0-960",
+        "enterprise_doc_001.md::w960o300:0-960",
+        "enterprise_doc_001.md::w960o300:0-960"
+      ]
+    },
+    {
+      "group": "P3",
+      "status": "PASS",
+      "checks": {
+        "initialize": true,
+        "tools_exactly_two": true,
+        "scope_in_schema": true,
+        "empty_query_is_error": true,
+        "invalid_k_is_error": true,
+        "invalid_id_is_error": true,
+        "search_topk_and_order": true,
+        "search_and_fetch_texts_match_metadata": true,
+        "fetch_via_search_node_id": true,
+        "neighbors_are_node_id_references": true
+      },
+      "search_node_ids": [
+        "enterprise_doc_001.md::w240o50:950-1190",
+        "enterprise_doc_001.md::w240o50:760-1000",
+        "enterprise_doc_001.md::w240o50:0-240",
+        "enterprise_doc_001.md::w240o50:380-620",
+        "enterprise_doc_001.md::w240o50:190-430"
+      ],
+      "scores": [
+        0.7420938611030579,
+        0.7245780229568481,
+        0.7127192616462708,
+        0.7029682993888855,
+        0.6409558653831482
+      ],
+      "fetch_node_ids": [
+        "enterprise_doc_001.md::w1200o300:0-1200",
+        "enterprise_doc_001.md::w1200o300:0-1200",
+        "enterprise_doc_001.md::w1200o300:0-1200",
+        "enterprise_doc_001.md::w1200o300:0-1200",
+        "enterprise_doc_001.md::w1200o300:0-1200"
+      ]
+    }
+  ]
+}

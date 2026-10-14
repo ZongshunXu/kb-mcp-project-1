@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "groups": 5,
+  "queries_per_group": 50,
+  "measured_rows": 750,
+  "all_evidence_decisions_recomputed": true,
+  "recall_and_tokens_equal_across_two_runs": true,
+  "note": "Second run performed after tests ended. Latency remains local sequential CPU observation."
+}

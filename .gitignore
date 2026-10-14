@@ -1,0 +1,35 @@
+# Python runtime and local environments
+__pycache__/
+.pytest_cache/
+/.pytest_tmp/
+*.py[cod]
+/.venv/
+/venv/
+/env/
+
+# Local IDE and machine configuration
+/.idea/
+/.vscode/
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+
+# Generated indexes, manifests, fixtures and snapshots; rebuild after cloning
+/artifacts/
+
+# Model weights are supplied separately; instructions are in README
+/models/
+
+# Keep the approved result snapshot; exclude optional local trial runs
+/reports/quick_run/
+/reports/quick_eval/
+/reports/local_eval/
+/reports/docker_eval/
+
+# Optional exported Docker image; share separately from source
+/kb-mcp-cpu.tar
+
+# Agent conversations are local runtime traces, not formal retrieval metrics
+/logs/
