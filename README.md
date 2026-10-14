@@ -206,11 +206,11 @@ git push -u origin main
 
 Git 保留源码、Docker 配置、依赖清单、300 篇语料、正式题集和实验报告。模型、向量索引、实际 `.env`、日志及离线交付包留在 Git 之外。GitHub 阻止普通 Git 仓库中超过 **100 MiB** 的单个文件；Release 的单个附件必须小于 **2 GiB**，因此镜像和约 2.30 GB 的完整模型不直接提交。限制依据 [GitHub 大文件说明](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github) 与 [Release 附件说明](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases)。
 
-镜像构建与验收成功后，离线交付计划生成以下附件，上传到同一版本的 Release；当前未上传。模型按 **512 MiB** 分卷，分卷不是独立模型文件，接收者需要全部下载。
+以下离线交付附件已完成打包和本机新接收目录初始化验收，下载入口为仓库的 [Releases 页面](https://github.com/ZongshunXu/kb-mcp-project-1/releases)。模型按 **512 MiB** 分卷，分卷不是独立模型文件，接收者需要全部下载；附件发布状态以 Releases 页面为准。
 
 | Release 附件 | 内容 |
 | --- | --- |
-| `kb-mcp-project.zip` | 源码、配置、固定输入与报告，计划包含已验收的 Docker CPU 索引 |
+| `kb-mcp-project.zip` | 源码、配置、固定输入与报告，包含已验收的 Docker CPU 索引 |
 | `kb-mcp-cpu.tar.gz` | 预构建 Linux amd64 CPU 镜像，省去接收者安装 Python 和首次镜像构建 |
 | `bge-m3-model.zip.part001` 至 `part005` | 完整 BGE-M3 ZIP 的分卷，初始化时合并并校验 |
 | `manifest.json` | 附件与模型的大小、SHA-256 等校验信息 |
